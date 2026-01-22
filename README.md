@@ -1,4 +1,4 @@
-<h1 align="center">🌟 Reusable Chakra UI Components with Next.js</h1>
+<h1 align="center">Reusable Chakra UI Components with Next.js</h1>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Next.js-13.4.12-black?logo=nextdotjs" alt="Next.js Version" />
