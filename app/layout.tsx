@@ -4,6 +4,7 @@ import { Suspense } from "react"
 import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
 import { Analytics } from "@vercel/analytics/next"
+import SmoothScrolling from "../src/components/SmoothScrolling"
 import "./globals.css"
 
 export const metadata: Metadata = {
@@ -20,8 +21,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
       <body className="antialiased">
-        <Suspense fallback={<div>Loading...</div>}>{children}</Suspense>
-        <Analytics />
+        <SmoothScrolling>
+          <Suspense fallback={<div>Loading...</div>}>{children}</Suspense>
+          <Analytics />
+        </SmoothScrolling>
       </body>
     </html>
   )
