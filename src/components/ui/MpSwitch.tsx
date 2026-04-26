@@ -1,27 +1,18 @@
 "use client"
 
-import { FormControl, FormLabel, Switch } from "@chakra-ui/react"
+import { FormControl, FormLabel, Switch, type SwitchProps } from "@chakra-ui/react"
 import PropTypes from "prop-types"
 
-export interface MpSwitchProps {
+export interface MpSwitchProps extends SwitchProps {
   label?: string
-  isChecked?: boolean
-  onChange?: (checked: boolean) => void
-  isDisabled?: boolean
 }
 
-export default function MpSwitch({ label, isChecked, onChange, isDisabled }: MpSwitchProps) {
+export default function MpSwitch({ label, colorScheme = "blue", size = "md", ...props }: MpSwitchProps) {
   return (
     <FormControl display="flex" alignItems="center">
-      <Switch
-        isChecked={isChecked}
-        onChange={(e) => onChange?.(e.target.checked)}
-        isDisabled={isDisabled}
-        colorScheme="blue"
-        size="md"
-      />
+      <Switch colorScheme={colorScheme} size={size} {...props} />
       {label && (
-        <FormLabel htmlFor="switch" mb="0" ml={3} fontSize="sm">
+        <FormLabel mb="0" ml={3} fontSize="sm">
           {label}
         </FormLabel>
       )}

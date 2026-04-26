@@ -10,8 +10,15 @@ interface MpNodataProps {
 export default function MpNodata({ message = "No data available" }: MpNodataProps) {
   return (
     <VStack spacing={2} py={8}>
-      <Box fontSize="4xl" opacity={0.3}>
-        📭
+      <Box maxW="120px" opacity={0.8}>
+        <img
+          src="/no-data.png"
+          alt="No data illustration"
+          style={{ width: "100%", height: "auto" }}
+          onError={(e) => {
+            ;(e.target as HTMLImageElement).src = "https://cdn-icons-png.flaticon.com/512/7486/7486744.png"
+          }}
+        />
       </Box>
       <Text color="mutedForeground" fontSize="sm">
         {message}

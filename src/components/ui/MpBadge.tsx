@@ -2,16 +2,16 @@
 
 import type React from "react"
 
-import { Badge } from "@chakra-ui/react"
+import { Badge, type BadgeProps } from "@chakra-ui/react"
 import PropTypes from "prop-types"
 
-export interface MpBadgeProps {
+export interface MpBadgeProps extends BadgeProps {
   children: React.ReactNode
   variant?: "solid" | "subtle" | "outline"
   colorScheme?: string
 }
 
-export default function MpBadge({ children, variant = "subtle", colorScheme = "gray" }: MpBadgeProps) {
+export default function MpBadge({ children, variant = "subtle", colorScheme = "gray", ...props }: MpBadgeProps) {
   return (
     <Badge
       variant={variant}
@@ -22,6 +22,7 @@ export default function MpBadge({ children, variant = "subtle", colorScheme = "g
       fontSize="xs"
       fontWeight="medium"
       textTransform="none"
+      {...props}
     >
       {children}
     </Badge>
